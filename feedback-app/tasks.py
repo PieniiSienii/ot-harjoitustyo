@@ -17,4 +17,8 @@ def coverage_report(ctx):
     if platform != "win32":
         call(("xdg-open", "htmlcov/index.html"))
 
+@task
+def test(ctx):
+    ctx.run("pytest src", pty=True)
+
 #poetry run invoke --list

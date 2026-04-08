@@ -4,7 +4,7 @@ from sys import platform
 
 @task
 def start(ctx):
-    ctx.run("python3 src/index.py", pty=True)
+    ctx.run("python3 src/app.py", pty=True)
 
 @task
 def coverage(ctx):

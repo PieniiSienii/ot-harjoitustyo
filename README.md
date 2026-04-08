@@ -6,7 +6,7 @@ Sovelluksen avulla asiakkaat voivat antaa anonyymisti yritykselle palautetta, jo
 
 
 - [Tuntikirjanpito](feedback-app/dokumentaatio/tuntikirjanpito/)
-- [Vaatumusmäärittely](feedback-app/dokumentaatio/vaatimusmaarittely/)
+- [Vaatumusmäärittely](feedback-app/dokumentaatio/vaatimusmaarittely.md/)
 
 ## Asennus
 

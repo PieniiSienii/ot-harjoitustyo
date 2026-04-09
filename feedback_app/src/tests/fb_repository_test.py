@@ -14,7 +14,7 @@ class TestFbRepository(unittest.TestCase):
     def remove_test_file(self):
         if os.path.exists(self.test_file):
             os.remove(self.test_file)
-    
+
     def test_save_and_load(self):
         fb = Feedback("ok")
         self.repo.save(fb)

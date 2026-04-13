@@ -10,5 +10,81 @@
   },
   {
     "mood": "bad"
+  },
+  {
+    "mood": "ok",
+    "rating": 4
+  },
+  {
+    "mood": "bad",
+    "rating": 1
+  },
+  {
+    "mood": "bad",
+    "rating": 1
+  },
+  {
+    "mood": "Ok",
+    "rating": 5
+  },
+  {
+    "mood": "Ok",
+    "rating": 5
+  },
+  {
+    "mood": "Ok",
+    "rating": 5
+  },
+  {
+    "mood": "Ok",
+    "rating": 5
+  },
+  {
+    "mood": "Ok",
+    "rating": 5
+  },
+  {
+    "mood": "Ok",
+    "rating": 5
+  },
+  {
+    "mood": "Ok",
+    "rating": 5
+  },
+  {
+    "mood": "Ok",
+    "rating": 5
+  },
+  {
+    "mood": "Ok",
+    "rating": 5
+  },
+  {
+    "mood": "Ok",
+    "rating": 1
+  },
+  {
+    "mood": "Ok",
+    "rating": 1
+  },
+  {
+    "mood": "Ok",
+    "rating": 1
+  },
+  {
+    "mood": "Ok",
+    "rating": 1
+  },
+  {
+    "mood": "Ok",
+    "rating": 1
+  },
+  {
+    "mood": "Ok",
+    "rating": 1
+  },
+  {
+    "mood": "Ok",
+    "rating": 1
   }
 ]

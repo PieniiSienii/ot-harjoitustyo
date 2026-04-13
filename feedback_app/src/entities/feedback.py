@@ -1,3 +1,4 @@
 class Feedback:
-    def __init__(self, mood:str):
-        self._mood = mood
+    def __init__(self, mood: str, rating: int):
+        self.mood = mood
+        self.rating = rating

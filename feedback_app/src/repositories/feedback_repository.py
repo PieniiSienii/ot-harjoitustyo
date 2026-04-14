@@ -8,8 +8,9 @@ class FeedbackRepository:
 
     def save(self, feedback: Feedback):
         data = self.get_all()
-        data.append({"mood": feedback.mood,
-                    "rating": feedback.rating})
+        data.append({"org_id": feedback.org_id,
+                    "mood": feedback.mood,
+                     "rating": feedback.rating})
 
         with open(self._file, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)

@@ -28,7 +28,6 @@ class UI:
 
         self._current_view.pack()
 
-
     def _show_customer(self):
         self._hide_current_view()
 
@@ -39,13 +38,12 @@ class UI:
 
         self._current_view.start()
 
-
     def _show_admin(self):
         self._hide_current_view()
 
-        # self._current_view = AdminUI(
-        #     self._root,
-        #     self._service
-        # )
+        self._current_view = AdminUI(
+            self._root,
+            self._service
+        )
 
-        # self._current_view.start()
+        self._current_view.start()

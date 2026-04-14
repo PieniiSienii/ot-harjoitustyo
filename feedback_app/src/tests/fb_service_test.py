@@ -19,8 +19,9 @@ class TestFeedbackService(unittest.TestCase):
     def test_fb_saves_correctly(self):
         repo = FakeRepoForTest()
         service = FeedbackService(repo)
-        service.save_feedback("good", 4)
+        service.save_feedback(1, "good", 4)
 
         self.assertEqual(len(repo.saved), 1)
         self.assertEqual(repo.saved[0].mood, "good")
         self.assertEqual(repo.saved[0].rating, 4)
+        self.assertEqual(repo.saved[0].org_id, 1)

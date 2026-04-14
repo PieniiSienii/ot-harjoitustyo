@@ -12,7 +12,3 @@ Sovelluksen avulla asiakkaat voivat antaa anonyymisti yritykselle palautetta, jo
 ## Asennus
 
 ## Komentorivitoiminnot
-
-
-
-[Katso laskarit-kansio](laskarit/)

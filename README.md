@@ -5,11 +5,11 @@ Sovelluksen avulla asiakkaat voivat antaa anonyymisti yritykselle palautetta, jo
 ## Dokumentaatio
 
 
-- [Tuntikirjanpito](feedback-app/dokumentaatio/tuntikirjanpito/)
-- [Vaatumusmäärittely](feedback-app/dokumentaatio/vaatimusmaarittely.md/)
-
+- [Tuntikirjanpito](feedback_app/dokumentaatio/tuntikirjanpito/)
+- [Vaatumusmäärittely](feedback_app/dokumentaatio/vaatimusmaarittely.md/)
+- [Arkkitehtuuri](feedback_app/dokumentaatio/arkkitehtuuri.md/)
+- [Changelog](feedback_app/dokumentaatio/changelog.md/)
 ## Asennus
-
 
 ## Komentorivitoiminnot
 

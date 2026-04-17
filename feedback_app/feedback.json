@@ -43,5 +43,10 @@
     "org_id": 4,
     "mood": "Bad",
     "rating": 2
+  },
+  {
+    "org_id": 4,
+    "mood": "Bad",
+    "rating": 1
   }
 ]

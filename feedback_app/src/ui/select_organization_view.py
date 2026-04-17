@@ -24,5 +24,5 @@ class SelectOrganizationView:
             ttk.Button(
                 master=self._frame,
                 text=org.name,
-                command=lambda o=org: self._handle_org(o.id)
-            ).grid(row=1, column=org.id)
+                command=lambda o=org: self._handle_org(o.org_id)
+            ).grid(row=1, column=org.org_id)

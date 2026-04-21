@@ -6,3 +6,6 @@
 - Käyttäjä voi valita onko organisaation työntekijä, vai asiakas
 - Käyttäjä voi valita, minkä organisaation tietoja katsoo/ mille antaa palautetta
 - Käyttäjä näkee organisaation sivulla sille annetut palautteet
+
+## Viikko 5
+- Käyttäjä voi siirtyä edelliseen näkymään (ei toimi täysin)

@@ -12,13 +12,13 @@ class SelectOrganizationView:
         self._initialize()
 
     def pack(self):
-        self._frame.pack(fill=constants.X)
+        self._frame.pack(fill=constants.X, expand= True)
 
     def destroy(self):
-        self._frame.destroy()
-
-    def hide(self):
-        self._frame.pack_forget()
+        if self._frame is not None:
+            self._frame.grid_forget()
+            self._frame.destroy()
+            self._frame = None
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)

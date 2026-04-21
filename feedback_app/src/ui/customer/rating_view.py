@@ -16,9 +16,6 @@ class RatingView:
     def destroy(self):
         self._frame.destroy()
 
-    def hide(self):
-        self._frame.pack_forget()
-
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
         label = ttk.Label(master=self._frame, text="Rate your visit (1-5)")

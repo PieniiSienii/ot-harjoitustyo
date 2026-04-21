@@ -20,7 +20,7 @@ class CustomerUI:
         self._show_org_view()
 
     def _show_org_view(self):
-        self._flow.show(
+        self._flow.show(lambda:
             SelectOrganizationView(
             self._root,
             self._handle_org,
@@ -33,7 +33,7 @@ class CustomerUI:
         self._show_mood_view()
 
     def _show_mood_view(self):
-        self._flow.show(MoodView(
+        self._flow.show(lambda: MoodView(
             self._root,
             self._handle_mood,
             self._flow.go_back
@@ -45,7 +45,7 @@ class CustomerUI:
         self._show_rating()
 
     def _show_rating(self):
-        self._flow.show(RatingView(
+        self._flow.show(lambda: RatingView(
             self._root,
             self._handle_rating,
             self._flow.go_back

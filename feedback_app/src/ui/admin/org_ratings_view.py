@@ -26,7 +26,7 @@ class OrgRatingsView:
                           text="Organization feedbacks")
         row = 1
         for feedback in self._feedbacks:
-            text = f"Mood: {feedback["mood"]}, Rating: {feedback["rating"]}"
+            text = f"Mood: {feedback.mood}, Rating: {feedback.rating}"
             label = ttk.Label(master=self._frame, text=text)
             label.grid(row=row, column=0)
             row += 1

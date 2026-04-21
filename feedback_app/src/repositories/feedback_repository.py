@@ -29,6 +29,6 @@ class FeedbackRepository:
             row["org_id"],
             row["mood"],
             row["rating"],
-            row["q1"],
-            row["q2"])
+            row["question1"],
+            row["question2"])
             for row in rows]

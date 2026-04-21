@@ -13,7 +13,8 @@ class UI:
         self._show_select_user()
 
     def _show_select_user(self):
-        self._flow.show(SelectUserView(
+        self._flow.show(lambda:
+            SelectUserView(
             self._root,
             self._show_customer,
             self._show_admin
@@ -21,6 +22,7 @@ class UI:
         )
 
     def _show_customer(self):
+        self._flow.clear()
         CustomerUI(
             self._root,
             self._service,
@@ -28,6 +30,7 @@ class UI:
         ).start()
 
     def _show_admin(self):
+        self._flow.clear()
         AdminUI(
             self._root,
             self._service,

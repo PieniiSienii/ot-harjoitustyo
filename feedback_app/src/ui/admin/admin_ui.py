@@ -15,7 +15,7 @@ class AdminUI:
         self._show_org_view()
 
     def _show_org_view(self):
-        self._flow.show(
+        self._flow.show(lambda:
             SelectOrganizationView(
             self._root,
             self._handle_org,

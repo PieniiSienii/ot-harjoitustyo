@@ -7,4 +7,6 @@
 | 13.4  | 2    | Lisäsin mahdollisuuden valita onko työntekijä vai asiakas |
 | 14.4  | 2    | Lisäsin sovellukseen organisaatioita jonka käyttäjä voi valita |
 | 17.4  | 2    | Korjasin select organization |
-| yht   | 19   | |
+| 20.4  | 3    | Muutin JSON --> SQLite |
+| 21.4  | 5    | Yritin lisätä "Back" nappia |
+| yht   | 27   | |

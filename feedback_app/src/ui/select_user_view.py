@@ -16,6 +16,9 @@ class SelectUserView:
     def destroy(self):
         self._frame.destroy()
 
+    def hide(self):
+        self._frame.pack_forget()
+
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
         label = ttk.Label(master=self._frame,
@@ -27,6 +30,7 @@ class SelectUserView:
         customer_button = ttk.Button(master=self._frame,
                                      text="Customer",
                                      command=self._handle_customer)
+
         label.grid(row=0, column=0, columnspan=2)
         admin_button.grid(row=1, column=0)
         customer_button.grid(row=1, column=1)

@@ -1,49 +1,36 @@
 from ui.select_user_view import SelectUserView
 from ui.customer.customer_ui import CustomerUI
 from ui.admin.admin_ui import AdminUI
-
+from ui.view_flow import ViewFlow
 
 class UI:
     def __init__(self, root, service):
         self._root = root
         self._service = service
-        self._current_view = None
+        self._flow = ViewFlow(root)
 
     def start(self):
         self._show_select_user()
 
-    def _hide_current_view(self):
-        if self._current_view:
-            self._current_view.destroy()
-        self._current_view = None
-
     def _show_select_user(self):
-        self._hide_current_view()
-
-        self._current_view = SelectUserView(
+        self._flow.show(SelectUserView(
             self._root,
             self._show_customer,
             self._show_admin
         )
-
-        self._current_view.pack()
+        )
 
     def _show_customer(self):
-        self._hide_current_view()
-
-        self._current_view = CustomerUI(
+        CustomerUI(
             self._root,
-            self._service
-        )
-
-        self._current_view.start()
+            self._service,
+            self._show_select_user
+        ).start()
 
     def _show_admin(self):
-        self._hide_current_view()
-
-        self._current_view = AdminUI(
+        AdminUI(
             self._root,
-            self._service
-        )
+            self._service,
+            self._show_select_user
+        ).start()
 
-        self._current_view.start()

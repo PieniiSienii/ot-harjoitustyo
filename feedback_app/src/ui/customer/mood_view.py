@@ -2,10 +2,11 @@ from tkinter import ttk, constants
 
 
 class MoodView:
-    def __init__(self, root, handle_mood):
+    def __init__(self, root, handle_mood, go_back):
         self._root = root
         self._handle_mood = handle_mood
         self._frame = None
+        self._go_back = go_back
 
         self._initialize()
 
@@ -14,6 +15,9 @@ class MoodView:
 
     def destroy(self):
         self._frame.destroy()
+
+    def hide(self):
+        self._frame.pack_forget()
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
@@ -37,6 +41,12 @@ class MoodView:
             text="Bad",
             command=lambda: self._handle_mood("Bad")
         )
+
+        ttk.Button(
+            master=self._frame,
+            text="Back",
+            command=self._go_back
+        ).grid(row=4, column=0)
 
         label.grid(row=0, column=0)
         ok_button.grid(row=1, column=0)

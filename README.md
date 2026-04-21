@@ -5,10 +5,11 @@ Sovelluksen avulla asiakkaat voivat antaa anonyymisti yritykselle palautetta, jo
 ## Dokumentaatio
 
 
-- [Tuntikirjanpito](feedback_app/dokumentaatio/tuntikirjanpito/)
+- [Tuntikirjanpito](feedback_app/dokumentaatio/tuntikirjanpito.md/)
 - [Vaatumusmäärittely](feedback_app/dokumentaatio/vaatimusmaarittely.md/)
 - [Arkkitehtuuri](feedback_app/dokumentaatio/arkkitehtuuri.md/)
 - [Changelog](feedback_app/dokumentaatio/changelog.md/)
+- [Release](https://github.com/PieniiSienii/ot-harjoitustyo/releases/tag/viikko5)
 ## Asennus
 
 ## Komentorivitoiminnot

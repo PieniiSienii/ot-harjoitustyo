@@ -2,6 +2,10 @@
 
 ``` mermaid
 classDiagram
+    class Organization {
+        id
+        name
+    }
     class Feedback {
         org_id
         mood
@@ -11,6 +15,7 @@ classDiagram
 class FeedbackRepository
 class FeedbackService
 
+Organization "1" --> Feedback
 FeedbackService --> FeedbackRepository
 FeedbackRepository --> Feedback
 ```

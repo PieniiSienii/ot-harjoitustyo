@@ -6,4 +6,5 @@
 | 10.4  | 4    | Muutin sovelluksen graafiseksi käyttöliittymäksi |
 | 13.4  | 2    | Lisäsin mahdollisuuden valita onko työntekijä vai asiakas |
 | 14.4  | 2    | Lisäsin sovellukseen organisaatioita jonka käyttäjä voi valita |
-| yht   | 17   | |
+| 17.4  | 2    | Korjasin select organization |
+| yht   | 19   | |

@@ -1,13 +1,15 @@
 from tkinter import Tk
 from repositories.feedback_repository import FeedbackRepository
 from services.feedback_service import FeedbackService
+from db_connection import get_db_connection
 from ui.ui import UI
 
 
 def main():
     window = Tk()
     window.title("Feedback App")
-    repo = FeedbackRepository()
+    connection = get_db_connection()
+    repo = FeedbackRepository(connection)
     service = FeedbackService(repo)
     ui = UI(window, service)
     ui.start()

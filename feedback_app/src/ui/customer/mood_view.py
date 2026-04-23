@@ -19,19 +19,20 @@ class MoodView:
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
         label = ttk.Label(master=self._frame,
-                          text="How was your visit? (ok/good/bad)")
+                          text="How is your overall mood today? (Excellent/ Ok/ Bad)")
+
+        excellent_button = ttk.Button(
+            master=self._frame,
+            text="Excellent",
+            command=lambda: self._handle_mood("Good")
+        )
 
         ok_button = ttk.Button(
             master=self._frame,
-            text="ok",
+            text="Ok",
             command=lambda: self._handle_mood("Ok")
         )
 
-        good_button = ttk.Button(
-            master=self._frame,
-            text="Good",
-            command=lambda: self._handle_mood("Good")
-        )
 
         bad_button = ttk.Button(
             master=self._frame,
@@ -43,9 +44,9 @@ class MoodView:
             master=self._frame,
             text="Back",
             command=self._go_back
-        ).grid(row=4, column=0)
+        ).grid(row=4, column=0, pady=8)
 
-        label.grid(row=0, column=0)
-        ok_button.grid(row=1, column=0)
-        good_button.grid(row=1, column=1)
+        label.grid(row=0, column=0, columnspan=2)
+        excellent_button.grid(row=1, column=0)
+        ok_button.grid(row=1, column=1)
         bad_button.grid(row=1, column=2)

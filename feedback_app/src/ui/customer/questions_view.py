@@ -39,7 +39,7 @@ class QuestionsView:
             master=self._frame,
             text="Back",
             command=self._go_back
-        ).grid(row=4, column=0)
+        ).grid(row=4, column=0, pady= 8)
 
         label.grid(row=0, column=0, columnspan=5)
         self._question_label.grid(row=1, column=0, columnspan=5)

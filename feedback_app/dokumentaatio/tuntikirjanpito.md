@@ -9,4 +9,5 @@
 | 17.4  | 2    | Korjasin select organization |
 | 20.4  | 3    | Muutin JSON --> SQLite |
 | 21.4  | 5    | Yritin lisätä "Back" nappia |
-| yht   | 27   | |
+| 22.4  | 4    | Korjasin "Back" napin ja lisäsin kaksi fb kysymystä |
+| yht   | 31   | |

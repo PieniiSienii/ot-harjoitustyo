@@ -31,3 +31,10 @@ class SelectUserView:
         label.grid(row=0, column=0, columnspan=2)
         admin_button.grid(row=1, column=0)
         customer_button.grid(row=1, column=1)
+
+        close_button = ttk.Button(
+            master=self._frame,
+            text="Close window",
+            command=self._root.destroy
+        )
+        close_button.grid(row=3, column=0, pady= 8)

@@ -35,4 +35,4 @@ class SelectOrganizationView:
             master=self._frame,
             text="Back",
             command=self._go_back
-        ).grid(row=len(ORGANIZATIONS) + 2, column=0)
+        ).grid(row=len(ORGANIZATIONS) + 2, column=0, pady= 8)

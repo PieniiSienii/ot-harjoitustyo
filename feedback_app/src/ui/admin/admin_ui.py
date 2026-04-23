@@ -26,14 +26,15 @@ class AdminUI:
                         )
 
     def _handle_org(self, org_id):
+        averages = self._service.get_average_ratings(org_id)
         feedbacks = self._service.get_all()
 
-        filtered_ratings = []
-        for feedback in feedbacks:
-            if feedback.org_id == org_id:
-                filtered_ratings.append(feedback)
+        filtered_ratings = [fb for fb in feedbacks if fb.org_id == org_id]
 
         self._flow.show(lambda:
                         OrgRatingsView(
-                            self._root, filtered_ratings, self._flow.go_back)
+                            self._root,
+                            filtered_ratings,
+                            averages,
+                            self._flow.go_back)
                         )

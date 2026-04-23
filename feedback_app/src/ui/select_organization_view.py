@@ -12,19 +12,17 @@ class SelectOrganizationView:
         self._initialize()
 
     def pack(self):
-        self._frame.pack(fill=constants.X, expand= True)
+        self._frame.pack(fill=constants.X, expand=True)
 
     def destroy(self):
-        if self._frame is not None:
-            self._frame.grid_forget()
-            self._frame.destroy()
-            self._frame = None
+        self._frame.destroy()
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
 
         label = ttk.Label(master=self._frame,
                           text="Select organization")
+        label.grid(row=0, column=0)
 
         for i, org in enumerate(ORGANIZATIONS):
             ttk.Button(
@@ -37,4 +35,4 @@ class SelectOrganizationView:
             master=self._frame,
             text="Back",
             command=self._go_back
-        ).grid(row=len(ORGANIZATIONS) + 1, column=0)
+        ).grid(row=len(ORGANIZATIONS) + 2, column=0)

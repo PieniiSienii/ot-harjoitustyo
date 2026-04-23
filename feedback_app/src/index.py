@@ -7,6 +7,7 @@ from ui.ui import UI
 
 def main():
     window = Tk()
+    window.geometry("400x400")
     window.title("Feedback App")
     connection = get_db_connection()
     repo = FeedbackRepository(connection)

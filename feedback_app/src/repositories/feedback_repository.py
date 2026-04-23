@@ -1,3 +1,4 @@
+import json
 from entities.feedback import Feedback
 
 
@@ -9,15 +10,13 @@ class FeedbackRepository:
         cursor = self._connection.cursor()
 
         cursor.execute("""
-                    INSERT INTO feedback(org_id, mood, rating, question1, question2)
-                    VALUES (?, ?, ?, ?, ?)
+                    INSERT INTO feedback(org_id, mood, answers)
+                    VALUES (?, ?, ?)
                     """, (
-                        feedback.org_id,
-                        feedback.mood,
-                        feedback.rating,
-                        feedback.q1,
-                        feedback.q2
-                    ))
+            feedback.org_id,
+            feedback.mood,
+            json.dumps(feedback.answers),
+        ))
         self._connection.commit()
 
     def get_all(self):
@@ -28,7 +27,5 @@ class FeedbackRepository:
         return [Feedback(
             row["org_id"],
             row["mood"],
-            row["rating"],
-            row["question1"],
-            row["question2"])
+            json.loads(row["answers"]))
             for row in rows]

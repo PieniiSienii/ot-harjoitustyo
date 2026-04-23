@@ -1,5 +1,6 @@
 from db_connection import get_db_connection
 
+
 def drop_tables(connection):
     cursor = connection.cursor()
 
@@ -7,6 +8,7 @@ def drop_tables(connection):
     cursor.execute("DROP TABLE IF EXISTS organizations")
 
     connection.commit()
+
 
 def create_tables(connection):
     cursor = connection.cursor()
@@ -16,9 +18,7 @@ def create_tables(connection):
                    id INTEGER PRIMARY KEY,
                    org_id INTEGER,
                    mood TEXT,
-                   rating INTEGER,
-                   question1 INTEGER,
-                   question2 INTEGER
+                   answers TEXT
             )""")
 
     cursor.execute("""
@@ -28,6 +28,7 @@ def create_tables(connection):
                 """)
 
     connection.commit()
+
 
 def seed_organizations(connection):
     cursor = connection.cursor()
@@ -39,11 +40,13 @@ def seed_organizations(connection):
 
     connection.commit()
 
+
 def initialize_db():
     connection = get_db_connection()
     drop_tables(connection)
     create_tables(connection)
     seed_organizations(connection)
+
 
 if __name__ == "__main__":
     initialize_db()

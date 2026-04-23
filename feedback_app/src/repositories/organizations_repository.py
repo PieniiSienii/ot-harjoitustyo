@@ -1,4 +1,6 @@
 from entities.organizations import Organization
+
+
 class OganizationRepository:
     def __init__(self, connection):
         self._connection = connection
@@ -9,4 +11,4 @@ class OganizationRepository:
 
         rows = cursor.fetchall()
 
-        return[Organization(row["org_id"], row["name"]) for row in rows]
+        return [Organization(row["org_id"], row["name"]) for row in rows]

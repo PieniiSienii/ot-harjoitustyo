@@ -11,7 +11,7 @@ class OrgRatingsView:
         self._initialize()
 
     def pack(self):
-        self._frame.pack(fill=constants.X)
+        self._frame.pack(fill=constants.X, expand=True)
 
     def destroy(self):
         self._frame.destroy()
@@ -24,17 +24,17 @@ class OrgRatingsView:
 
         label = ttk.Label(master=self._frame,
                           text="Organization feedbacks")
+        label.grid(row=0, column=0)
+
         row = 1
         for feedback in self._feedbacks:
-            text = f"Mood: {feedback.mood}, Rating: {feedback.rating}"
+            text = f"Mood: {feedback.mood}, Rating: {feedback.answers}"
             label = ttk.Label(master=self._frame, text=text)
             label.grid(row=row, column=0)
             row += 1
-        
+
         ttk.Button(
             master=self._frame,
             text="Back",
             command=self._go_back
-        ).grid(row=4, column=0)
-
-        label.grid(row=0, column=0)
+        ).grid(row=row, column=0)

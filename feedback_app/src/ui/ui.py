@@ -3,6 +3,7 @@ from ui.customer.customer_ui import CustomerUI
 from ui.admin.admin_ui import AdminUI
 from ui.view_flow import ViewFlow
 
+
 class UI:
     def __init__(self, root, service):
         self._root = root
@@ -14,18 +15,19 @@ class UI:
 
     def _show_select_user(self):
         self._flow.show(lambda:
-            SelectUserView(
-            self._root,
-            self._show_customer,
-            self._show_admin
-        )
-        )
+                        SelectUserView(
+                            self._root,
+                            self._show_customer,
+                            self._show_admin
+                        )
+                        )
 
     def _show_customer(self):
         self._flow.clear()
         CustomerUI(
             self._root,
             self._service,
+            self._flow,
             self._show_select_user
         ).start()
 
@@ -34,6 +36,6 @@ class UI:
         AdminUI(
             self._root,
             self._service,
+            self._flow,
             self._show_select_user
         ).start()
-

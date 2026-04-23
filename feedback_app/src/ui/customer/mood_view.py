@@ -11,7 +11,7 @@ class MoodView:
         self._initialize()
 
     def pack(self):
-        self._frame.pack(fill=constants.X)
+        self._frame.pack(fill=constants.X, expand=True)
 
     def destroy(self):
         self._frame.destroy()

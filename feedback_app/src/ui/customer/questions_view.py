@@ -9,7 +9,7 @@ class QuestionsView:
         self._frame = None
         self._go_back = go_back
         self._answers = []
-        self._curr_question = 0 
+        self._curr_question = 0
 
         self._initialize()
 
@@ -21,12 +21,13 @@ class QuestionsView:
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
-        label= ttk.Label(master=self._frame, text="Answer the questions (1-5)")
+        label = ttk.Label(master=self._frame,
+                          text="Answer the questions (1-5)")
 
         self._question_label = ttk.Label(
             master=self._frame,
             text=Feedback.QUESTIONS[self._curr_question]
-            )
+        )
 
         for num in range(1, 6):
             ttk.Button(
@@ -39,7 +40,7 @@ class QuestionsView:
             master=self._frame,
             text="Back",
             command=self._go_back
-        ).grid(row=4, column=0, pady= 8)
+        ).grid(row=4, column=0, pady=8)
 
         label.grid(row=0, column=0, columnspan=5)
         self._question_label.grid(row=1, column=0, columnspan=5)
@@ -49,7 +50,8 @@ class QuestionsView:
         self._curr_question += 1
 
         if self._curr_question < len(Feedback.QUESTIONS):
-            self._question_label.config(text=Feedback.QUESTIONS[self._curr_question])
+            self._question_label.config(
+                text=Feedback.QUESTIONS[self._curr_question])
 
         else:
             self._handle_questions(self._answers)

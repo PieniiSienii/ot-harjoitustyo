@@ -33,7 +33,6 @@ class MoodView:
             command=lambda: self._handle_mood("Ok")
         )
 
-
         bad_button = ttk.Button(
             master=self._frame,
             text="Bad",

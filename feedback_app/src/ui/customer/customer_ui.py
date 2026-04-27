@@ -46,18 +46,16 @@ class CustomerUI:
 
     def _show_questions(self):
         self._flow.show(lambda:
-            QuestionsView(
-                self._root,
-                self._handle_questions,
-                self._flow.go_back
-            )
-        )
+                        QuestionsView(
+                            self._root,
+                            self._handle_questions,
+                            self._flow.go_back
+                        )
+                        )
 
     def _handle_questions(self, answers):
         self._service.save_feedback(self._org_id, self._mood, answers)
         self._show_end_view()
-
-    
 
     def _show_end_view(self):
         self._flow.show(lambda: EndView(self._root))

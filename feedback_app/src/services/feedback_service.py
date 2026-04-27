@@ -25,5 +25,5 @@ class FeedbackService:
             for i, value in enumerate(fb.answers):
                 key = answer_keys[i]
                 total[key] += value
-        
+
         return {key: total[key] / len(feedbacks) for key in total}

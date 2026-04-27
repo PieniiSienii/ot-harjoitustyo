@@ -26,4 +26,4 @@ class EndView:
             text="Close window",
             command=self._root.destroy
         )
-        close_button.grid(row=1, column=0, pady= 8)
+        close_button.grid(row=1, column=0, pady=8)

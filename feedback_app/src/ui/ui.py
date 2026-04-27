@@ -5,9 +5,10 @@ from ui.view_flow import ViewFlow
 
 
 class UI:
-    def __init__(self, root, service):
+    def __init__(self, root, service, org_repo):
         self._root = root
         self._service = service
+        self._org_repo = org_repo
         self._flow = ViewFlow(root)
 
     def start(self):
@@ -37,5 +38,6 @@ class UI:
             self._root,
             self._service,
             self._flow,
+            self._org_repo,
             self._show_select_user
         ).start()

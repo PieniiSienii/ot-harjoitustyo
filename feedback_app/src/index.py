@@ -1,6 +1,7 @@
 from tkinter import Tk
 from repositories.feedback_repository import FeedbackRepository
 from services.feedback_service import FeedbackService
+from repositories.organizations_repository import OrganizationRepository
 from db_connection import get_db_connection
 from ui.ui import UI
 
@@ -12,7 +13,8 @@ def main():
     connection = get_db_connection()
     repo = FeedbackRepository(connection)
     service = FeedbackService(repo)
-    ui = UI(window, service)
+    org_repo = OrganizationRepository(connection)
+    ui = UI(window, service, org_repo)
     ui.start()
     window.mainloop()
 

@@ -26,7 +26,7 @@ class OrgRatingsView:
         label = ttk.Label(master=self._frame,
                           text="Organization feedbacks")
         label.grid(row=0, column=0, columnspan=5)
-        average_text = ttk.Label(master=self._frame, text= "Averages:")
+        average_text = ttk.Label(master=self._frame, text="Averages:")
         row = 2
         answer_keys = ["Cleanliness", "Customer Service", "Would Recommend"]
 
@@ -41,8 +41,7 @@ class OrgRatingsView:
             ttk.Label(
                 master=self._frame,
                 text="No ratings yet"
-            ).grid(row=1, column=0,columnspan=2)
-
+            ).grid(row=1, column=0, columnspan=2)
 
         ttk.Button(
             master=self._frame,
@@ -55,4 +54,4 @@ class OrgRatingsView:
             text="Close window",
             command=self._root.destroy
         )
-        close_button.grid(row=6, column=0, pady= 8, columnspan=10)
+        close_button.grid(row=6, column=0, pady=8, columnspan=10)

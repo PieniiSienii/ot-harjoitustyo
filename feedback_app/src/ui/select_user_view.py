@@ -37,4 +37,4 @@ class SelectUserView:
             text="Close window",
             command=self._root.destroy
         )
-        close_button.grid(row=3, column=0, pady= 8)
+        close_button.grid(row=3, column=0, pady=8)

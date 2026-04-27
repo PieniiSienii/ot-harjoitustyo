@@ -1,13 +1,13 @@
 from tkinter import ttk, constants
-from entities.organizations import ORGANIZATIONS
 
 
 class SelectOrganizationView:
-    def __init__(self, root, handle_org, go_back):
+    def __init__(self, root, handle_org, org_repo, go_back):
         self._root = root
         self._handle_org = handle_org
         self._frame = None
         self._go_back = go_back
+        self._org_repo = org_repo
 
         self._initialize()
 
@@ -24,7 +24,8 @@ class SelectOrganizationView:
                           text="Select organization")
         label.grid(row=0, column=0)
 
-        for i, org in enumerate(ORGANIZATIONS):
+        organization = self._org_repo.get_all()
+        for i, org in enumerate(organization):
             ttk.Button(
                 master=self._frame,
                 text=org.name,
@@ -35,4 +36,4 @@ class SelectOrganizationView:
             master=self._frame,
             text="Back",
             command=self._go_back
-        ).grid(row=len(ORGANIZATIONS) + 2, column=0, pady= 8)
+        ).grid(row=len(organization) + 2, column=0, pady=8)

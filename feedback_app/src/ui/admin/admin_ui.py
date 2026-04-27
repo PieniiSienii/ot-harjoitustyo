@@ -4,12 +4,13 @@ from ui.view_flow import ViewFlow
 
 
 class AdminUI:
-    def __init__(self, root, service, flow, go_back):
+    def __init__(self, root, service, flow, org_repo, go_back):
         self._root = root
         self._service = service
         self._current_view = None
         self._org = None
         self._go_back = go_back
+        self._org_repo = org_repo
         self._flow = flow
         self._flow._on_empty_back = self._go_back
 
@@ -21,6 +22,7 @@ class AdminUI:
                         SelectOrganizationView(
                             self._root,
                             self._handle_org,
+                            self._org_repo,
                             self._go_back
                         )
                         )

@@ -4,10 +4,10 @@ Sovelluksen avulla asiakkaat voivat antaa anonyymisti yritykselle palautetta, jo
 
 ## Dokumentaatio
 
-
+- [Käyttöohje](feedback_app/dokumentaatio/kayttoohje.md/)
 - [Tuntikirjanpito](feedback_app/dokumentaatio/tuntikirjanpito.md/)
 - [Vaatumusmäärittely](feedback_app/dokumentaatio/vaatimusmaarittely.md/)
-- [Arkkitehtuuri](feedback_app/dokumentaatio/arkkitehtuuri.md/)
+- [Arkkitehtuurikuvaus](feedback_app/dokumentaatio/arkkitehtuuri.md/)
 - [Changelog](feedback_app/dokumentaatio/changelog.md/)
 - [Release](https://github.com/PieniiSienii/ot-harjoitustyo/releases/tag/viikko5)
 
@@ -21,7 +21,7 @@ Sovelluksen avulla asiakkaat voivat antaa anonyymisti yritykselle palautetta, jo
 3. Alusta tietokanta komennolla:
 
    ```bash
-   python3 src/initialize_db.py
+   powtry run invoke build
    ```
 
 5. Käynnistä sovellus komennolla:

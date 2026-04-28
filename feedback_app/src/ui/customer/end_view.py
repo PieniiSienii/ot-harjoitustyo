@@ -2,6 +2,8 @@ from tkinter import ttk, constants
 
 
 class EndView:
+    """Luokka, joka vastaa loppunäkymästä, kun arvostelu on annettu. """
+
     def __init__(self, root):
         self._root = root
         self._frame = None

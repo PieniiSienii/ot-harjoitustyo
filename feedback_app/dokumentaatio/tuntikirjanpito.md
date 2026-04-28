@@ -10,4 +10,7 @@
 | 20.4  | 3    | Muutin JSON --> SQLite |
 | 21.4  | 5    | Yritin lisätä "Back" nappia |
 | 22.4  | 4    | Korjasin "Back" napin ja lisäsin kaksi fb kysymystä |
-| yht   | 31   | |
+| 23.4  | 3    | Lisäsin average rating |
+| 27.4  | 4    | Lisäsin average rating by mood ja lisäsin kysymyksiä|
+| 28.4  | 4    | Täydensin testejä ja dokumentaatiota |
+| yht   | 42   | |

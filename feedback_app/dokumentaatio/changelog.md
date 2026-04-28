@@ -9,3 +9,8 @@
 
 ## Viikko 5
 - Käyttäjä voi siirtyä edelliseen näkymään (ei toimi täysin)
+
+## Viikko 6
+- Korjattu viikon 5 toiminnallisuus
+- Organisaation näkymässä näkyy palautteiden keskiarvo
+- Organisaation näkymässä palautteiden keskiarvoa voi tarkastella "mood" ryhmittelyllä

@@ -3,6 +3,7 @@ from entities.feedback import Feedback
 
 
 class QuestionsView:
+    """ Luokka, joka näyttää kysymksiin vastaamisnäkymän. """
     def __init__(self, root, handle_questions, go_back):
         self._root = root
         self._handle_questions = handle_questions

@@ -5,34 +5,47 @@ from ui.customer.end_view import EndView
 
 
 class CustomerUI:
-    def __init__(self, root, service, flow, go_back):
+    """Vastaa asiakkaan näkymästä. """
+
+    def __init__(self, root, service, flow, org_repo, go_back):
         self._root = root
         self._service = service
         self._current_view = None
         self._mood = None
         self._org_id = None
         self._go_back = go_back
+        self._org_repo = org_repo
 
         self._flow = flow
-        self._flow._on_empty_back = self._go_back
 
     def start(self):
         self._show_org_view()
 
     def _show_org_view(self):
+        """Näyttää organisaation valintanäkymän. """
+
         self._flow.show(lambda:
                         SelectOrganizationView(
                             self._root,
                             self._handle_org,
+                            self._org_repo,
                             self._go_back
                         )
                         )
 
     def _handle_org(self, org_id):
+        """Tallentaa valitun organisaation id:n ja siirtyy "moodin" kysymykseen"
+
+        Args:
+            org_id: Valitun organisaation id. 
+        """
+
         self._org_id = org_id
         self._show_mood_view()
 
     def _show_mood_view(self):
+        """Näyttää näkymän, missä kysytään päivän fiilistä. """
+
         self._flow.show(lambda: MoodView(
             self._root,
             self._handle_mood,
@@ -54,6 +67,12 @@ class CustomerUI:
                         )
 
     def _handle_questions(self, answers):
+        """Tallentaa organisaation id:n, fiiliksen, ja arvostelun vastaukset. 
+
+        Args:
+            answers: Lista kolmen kysymyksen vastauksista (asteikko 1-5)
+        """
+
         self._service.save_feedback(self._org_id, self._mood, answers)
         self._show_end_view()
 

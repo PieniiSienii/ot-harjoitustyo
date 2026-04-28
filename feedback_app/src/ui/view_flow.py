@@ -1,12 +1,19 @@
 class ViewFlow:
-    def __init__(self, root, on_empty_back=None):
+    """Luokka, joka hallitsee näkymiä ja niissä navigointia.
+        Säilyttää historiassa factory-funktiot näkymistä, jotta back-navigaatiossa ne voidaan luoda uudelleen."""
+
+    def __init__(self, root,):
         self._root = root
         self._history = []
         self._current_view = None
         self._current_factory = None
-        self._on_empty_back = on_empty_back
 
     def show(self, view):
+        """Näyttää uuden näkymän ja tallentaa edellsen historiaan.
+
+        Args:
+            view: Kutsuttava näkymä, joka luodaan ja tallennetaan historiaan.
+        """
         if self._current_view is not None:
             self._current_view.destroy()
             self._history.append(self._current_factory)
@@ -17,18 +24,20 @@ class ViewFlow:
         self._root.update()
 
     def clear(self):
+        """Poistaa nykyisen näkymän ja tyhjentää historian. """
+
         if self._current_view is not None:
             self._current_view.destroy()
             self._current_view = None
         self._history = []
 
     def go_back(self):
+        """ Palaa edelliseen näkymään. """
+
         if self._current_view is not None:
             self._current_view.destroy()
 
         if not self._history:
-            if self._on_empty_back:
-                self._on_empty_back()
             return
 
         self._current_factory = self._history.pop()

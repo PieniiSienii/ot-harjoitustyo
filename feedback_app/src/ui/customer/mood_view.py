@@ -2,6 +2,8 @@ from tkinter import ttk, constants
 
 
 class MoodView:
+    """ Luokka, joka vastaa päivän fiilis kysymyksen näyttämisestä"""
+
     def __init__(self, root, handle_mood, go_back):
         self._root = root
         self._handle_mood = handle_mood
@@ -24,7 +26,7 @@ class MoodView:
         excellent_button = ttk.Button(
             master=self._frame,
             text="Excellent",
-            command=lambda: self._handle_mood("Good")
+            command=lambda: self._handle_mood("Excellent")
         )
 
         ok_button = ttk.Button(

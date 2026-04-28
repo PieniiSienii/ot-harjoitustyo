@@ -1,7 +1,7 @@
 from tkinter import Tk
 from repositories.feedback_repository import FeedbackRepository
-from services.feedback_service import FeedbackService
 from repositories.organizations_repository import OrganizationRepository
+from services.feedback_service import FeedbackService
 from db_connection import get_db_connection
 from ui.ui import UI
 

@@ -10,11 +10,11 @@ The application has two types of users: customers, who submit feedback, and the 
 - **Customers**
   - Submit anonymous feedback ✓
   - Rate their experience (happy, neutral, sad) ✓
-  - Answer 1-3 simple questions
+  - Answer 1-3 simple questions ✓
 - **The organization**
   - View aggregated feedback ✓
-  - See average ratings
-  - See distribution of experience
+  - See average ratings ✓
+  - See distribution of mood ✓
   - See distribution of yes/no or multiple-choice answers
   - Filter feedback
 

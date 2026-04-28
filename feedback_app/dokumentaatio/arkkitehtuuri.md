@@ -44,7 +44,7 @@ Organisaatiopolussa käyttäjä valitsee organisaation, jolloin  näytetään ko
 
 ## Sovelluslogiikka
 
-Sovelluslogiikasta vastaa `FeedbackService"` joka tarjoaa eri metodeita: 
+Sovelluslogiikasta vastaa `FeedbackService` joka tarjoaa eri metodeita: 
 
 - `save_feedback(org_id, mood, answers)`
 - `get_all()`

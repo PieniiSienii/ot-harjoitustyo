@@ -19,7 +19,7 @@ class SelectUserView:
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
         label = ttk.Label(master=self._frame,
-                          text="Welcome to Feedback App")
+                          text="Hello! Select your role:")
 
         admin_button = ttk.Button(master=self._frame,
                                   text="Organization",

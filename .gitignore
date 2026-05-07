@@ -5,3 +5,5 @@ htmlcov/
 .venv/
 venv/
 test_fb.json
+*.db
+

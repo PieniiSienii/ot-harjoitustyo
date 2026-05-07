@@ -4,8 +4,9 @@ from entities.feedback import Feedback
 class FeedbackService:
     """Luokka, joka huolehtii palautteiden logiikasta."""
 
-    def __init__(self, repository):
+    def __init__(self, repository, question_repository):
         self._repo = repository
+        self._question_repo = question_repository
 
     def save_feedback(self, org_id, mood, answers):
         """Tallentaa palautteen.
@@ -35,13 +36,15 @@ class FeedbackService:
         if not feedbacks:
             return {}
 
-        answer_keys = ["Cleanliness", "Customer Service", "Would Recommend"]
+        answer_keys = [q["key"] for q in self.get_questions()]
         total = {key: 0 for key in answer_keys}
 
         for fb in feedbacks:
             for i, value in enumerate(fb.answers):
                 key = answer_keys[i]
                 total[key] += value
+
+
 
         return {key: total[key] / len(feedbacks) for key in total}
 
@@ -74,15 +77,15 @@ class FeedbackService:
         return mood_grouped_ratings
 
     def _calc_averages(self, mood_grouped_ratings):
-        answer_keys = ["Cleanliness", "Customer Service", "Would Recommend"]
+        answer_keys = [q["key"] for q in self.get_questions()]
 
         result = {}
 
         for mood, answer_list in mood_grouped_ratings.items():
-            totals = [0, 0, 0]
+            totals = [0] * len(answer_keys)
 
             for answers in answer_list:
-                for i in range(3):
+                for i in range(len(answer_keys)):
                     totals[i] += answers[i]
 
             count = len(answer_list)
@@ -92,3 +95,21 @@ class FeedbackService:
                 for i, key in enumerate(answer_keys)
             }
         return result
+
+    def get_questions(self):
+        """Hakee kysymykset kysymysten repositoriosta."""
+        return self._question_repo.get_all()
+
+    def calc_overall_rating(self, org_id):
+        total = 0
+        feedbacks = [fb for fb in self._repo.get_all() if fb.org_id == org_id]
+        
+        if not feedbacks:
+            return {}
+
+        count = len(self.get_questions()) * len(feedbacks)
+        
+        for fb in feedbacks:
+            total += sum(fb.answers)
+
+        return total / count

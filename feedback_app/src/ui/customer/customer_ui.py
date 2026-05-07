@@ -62,7 +62,8 @@ class CustomerUI:
                         QuestionsView(
                             self._root,
                             self._handle_questions,
-                            self._flow.go_back
+                            self._flow.go_back,
+                            self._service
                         )
                         )
 

@@ -4,11 +4,12 @@ from tkinter import ttk, constants
 class OrgRatingsView:
     """Luokka, joka vastaa organisaation arvostelunäkymästä"""
 
-    def __init__(self, root, feedbacks, averages, averages_by_mood, go_back):
+    def __init__(self, root, feedbacks, averages, averages_by_mood, overall_rating, go_back):
         self._root = root
         self._feedbacks = feedbacks
         self._averages = averages
         self._averages_by_mood = averages_by_mood
+        self._overall_rating = overall_rating
         self._go_back = go_back
         self._frame = None
         self._mood_frame = None
@@ -27,20 +28,21 @@ class OrgRatingsView:
 
         self._frame = ttk.Frame(master=self._root)
 
-        label = ttk.Label(master=self._frame, text="Organization feedbacks")
-        label.grid(row=0, column=0, columnspan=5)
+        label = ttk.Label(master=self._frame, text="Organization feedbacks", font=("Arial", 16, "bold"))
+        label.grid(row=0, column=0, columnspan=5, sticky="w", padx=10, pady=2)
 
+        self.show_overall_rating()
         row = 2
 
         if self._averages:
             ttk.Label(master=self._frame, text="Averages").grid(
-                row=row, column=0, columnspan=5, sticky="w")
+                row=row, column=0, columnspan=5, sticky="w", padx=10, pady=2)
 
             for key in self._answer_keys:
                 ttk.Label(
                     master=self._frame,
-                    text=f"{key} {self._averages[key]}"
-                ).grid(row=row, column=0, sticky="w")
+                    text=f"{key} {self._averages[key]:.2f}"
+                ).grid(row=row, column=0, sticky="w", padx=10, pady=2)
                 row += 1
 
             self._toggle_row = row
@@ -49,18 +51,18 @@ class OrgRatingsView:
                 text="See ratings by mood",
                 command=self._toggle_mood_ratings
             )
-            ratings_by_moood_button.grid(row=self._toggle_row, column=0)
+            ratings_by_moood_button.grid(row=self._toggle_row, column=0, sticky="w", padx=10, pady=2)
         else:
             ttk.Label(
                 master=self._frame,
                 text="No ratings yet"
-            ).grid(row=1, column=0, columnspan=2)
+            ).grid(row=1, column=0, columnspan=2, sticky="w", padx=10, pady=2)
             row += 1
             self._toggle_row = row
 
         self._mood_frame = ttk.Frame(master=self._frame)
         self._mood_frame.grid(row=self._toggle_row + 1,
-                              column=0, columnspan=5, sticky="w")
+                              column=0, columnspan=5, sticky="w", padx=10, pady=2)
         self._mood_frame.grid_remove()
 
         back_button = ttk.Button(
@@ -76,7 +78,7 @@ class OrgRatingsView:
         )
         back_button.grid(row=self._toggle_row + 2, column=0)
         close_button.grid(row=self._toggle_row + 3,
-                          column=0, pady=8, columnspan=10)
+                          column=0, columnspan=10, sticky="w", padx=10, pady=2)
 
     def _toggle_mood_ratings(self):
         """Huolehtii, näytetäänkö arvostelut jotka on ryhmitelty fiiliksen perusteella, vai ei.
@@ -101,7 +103,7 @@ class OrgRatingsView:
             ttk.Label(
                 master=self._mood_frame,
                 text="Average ratings, when mood was:"
-            ).grid(row=row, column=0, columnspan=2, sticky="w")
+            ).grid(row=row, column=0, columnspan=2, sticky="w", padx=10, pady=2)
 
             row += 1
 
@@ -110,15 +112,15 @@ class OrgRatingsView:
                     master=self._mood_frame,
                     text=f"{mood}", font=("Arial", 10, "bold")
                 )
-                mood_label.grid(row=row, column=0, sticky="w")
+                mood_label.grid(row=row, column=0, sticky="w", padx=10, pady=2)
 
                 row += 1
 
                 for key in self._answer_keys:
                     ttk.Label(
                         master=self._mood_frame,
-                        text=f"{key}: {ratings[key]}"
-                    ).grid(row=row, column=0, sticky="w")
+                        text=f"{key}: {ratings[key]:.2f}"
+                    ).grid(row=row, column=0, sticky="w", padx=10, pady=2)
                     row += 1
 
                 row += 1
@@ -126,4 +128,11 @@ class OrgRatingsView:
             ttk.Label(
                 master=self._mood_frame,
                 text="No ratings yet"
-            ).grid(row=1, column=0, columnspan=2)
+            ).grid(row=1, column=0, columnspan=2, sticky="w", padx=10, pady=2)
+
+    def show_overall_rating(self):
+        ttk.Label(
+            master=self._frame,
+            text=f"Overall Rating: {self._overall_rating:.2f}",
+            font=("Arial", 12, "bold")
+        ).grid(row=1, column=0, columnspan=5, sticky="w", padx=10, pady=2)

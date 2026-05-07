@@ -39,6 +39,7 @@ class OrganizationUI:
         averages_by_mood = self._service.get_average_ratings_by_mood(org_id)
         averages = self._service.get_average_ratings(org_id)
         feedbacks = self._service.get_all()
+        overall_rating = self._service.calc_overall_rating(org_id)
 
         filtered_ratings = [fb for fb in feedbacks if fb.org_id == org_id]
 
@@ -48,5 +49,6 @@ class OrganizationUI:
                             filtered_ratings,
                             averages,
                             averages_by_mood,
+                            overall_rating,
                             self._flow.go_back)
                         )

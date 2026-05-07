@@ -4,11 +4,12 @@ from entities.feedback import Feedback
 
 class QuestionsView:
     """ Luokka, joka näyttää kysymksiin vastaamisnäkymän. """
-    def __init__(self, root, handle_questions, go_back):
+    def __init__(self, root, handle_questions, go_back, service):
         self._root = root
         self._handle_questions = handle_questions
-        self._frame = None
         self._go_back = go_back
+        self._service = service
+        self._frame = None
         self._answers = []
         self._curr_question = 0
 
@@ -27,7 +28,7 @@ class QuestionsView:
 
         self._question_label = ttk.Label(
             master=self._frame,
-            text=Feedback.QUESTIONS[self._curr_question]
+            text=self._service.get_questions()[self._curr_question]
         )
 
         for num in range(1, 6):
@@ -50,9 +51,9 @@ class QuestionsView:
         self._answers.append(rating)
         self._curr_question += 1
 
-        if self._curr_question < len(Feedback.QUESTIONS):
+        if self._curr_question < len(self._service.get_questions()):
             self._question_label.config(
-                text=Feedback.QUESTIONS[self._curr_question])
+                text=self._service.get_questions()[self._curr_question])
 
         else:
             self._handle_questions(self._answers)

@@ -9,6 +9,8 @@ Sovelluksen avulla asiakkaat voivat antaa anonyymisti yritykselle palautetta, jo
 - [Vaatumusmäärittely](feedback_app/dokumentaatio/vaatimusmaarittely.md/)
 - [Arkkitehtuurikuvaus](feedback_app/dokumentaatio/arkkitehtuuri.md/)
 - [Changelog](feedback_app/dokumentaatio/changelog.md/)
+- [Testaus](feedback_app/dokumentaatio/testaus.md)
+- [Tekoälyn käyttö](feedback_app/dokumentaatio/tekoaly.md)
 - [Release (Loppupalautus)](https://github.com/PieniiSienii/ot-harjoitustyo/releases/tag/loppupalautus)
 
 ## Asennus

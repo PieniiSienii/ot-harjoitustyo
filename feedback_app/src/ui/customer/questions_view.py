@@ -8,6 +8,7 @@ class QuestionsView:
     def __init__(self, root, handle_questions, go_back, service):
         """Constructor for the questions view."""
 
+        self._root = root
         self._handle_questions = handle_questions
         self._go_back = go_back
         self._service = service

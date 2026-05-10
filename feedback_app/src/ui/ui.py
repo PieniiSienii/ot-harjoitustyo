@@ -33,7 +33,7 @@ class UI:
                         SelectUserView(
                             self._root,
                             self._show_customer,
-                            self._show_admin
+                            self._show_organization
                         )
                         )
 

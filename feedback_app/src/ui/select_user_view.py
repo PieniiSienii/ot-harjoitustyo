@@ -4,10 +4,10 @@ from tkinter import ttk, constants
 class SelectUserView:
     """Class responsible for selecting the user."""
 
-    def __init__(self, root, handle_customer, handle_admin):
+    def __init__(self, root, handle_customer, handle_org):
         self._root = root
         self._handle_customer = handle_customer
-        self._handle_admin = handle_admin
+        self._handle_org = handle_org
 
         self._frame = None
         self._initialize()
@@ -30,10 +30,10 @@ class SelectUserView:
         button_frame = ttk.Frame(master=self._frame)
         button_frame.pack(pady=5)
 
-        admin_button = ttk.Button(
+        org_button = ttk.Button(
             master=button_frame,
             text="Organization",
-            command=self._handle_admin
+            command=self._handle_org
         )
 
         customer_button = ttk.Button(
@@ -42,7 +42,7 @@ class SelectUserView:
             command=self._handle_customer
         )
 
-        admin_button.pack(side="left", padx=5)
+        org_button.pack(side="left", padx=5)
         customer_button.pack(side="left", padx=5)
 
         close_button = ttk.Button(

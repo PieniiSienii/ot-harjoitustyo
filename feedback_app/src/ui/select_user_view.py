@@ -11,30 +11,41 @@ class SelectUserView:
         self._initialize()
 
     def pack(self):
-        self._frame.pack(fill=constants.X)
+        self._frame.pack(fill=constants.BOTH, expand=True)
 
     def destroy(self):
         self._frame.destroy()
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
+        ttk.Frame(self._frame, height=80).pack()
         label = ttk.Label(master=self._frame,
-                          text="Hello! Select your role:")
+                          text="Hello! Select your role:", font=("Arial", 16, "bold"), justify="center"
+                          )
 
-        admin_button = ttk.Button(master=self._frame,
-                                  text="Organization",
-                                  command=self._handle_admin)
-        customer_button = ttk.Button(master=self._frame,
-                                     text="Customer",
-                                     command=self._handle_customer)
+        label.pack(pady=10)
 
-        label.grid(row=0, column=0, columnspan=2)
-        admin_button.grid(row=1, column=0)
-        customer_button.grid(row=1, column=1)
+        button_frame = ttk.Frame(master=self._frame)
+        button_frame.pack(pady=5)
+
+        admin_button = ttk.Button(
+            master=button_frame,
+            text="Organization",
+            command=self._handle_admin
+        )
+
+        customer_button = ttk.Button(
+            master=button_frame,
+            text="Customer",
+            command=self._handle_customer
+        )
+
+        admin_button.pack(side="left", padx=5)
+        customer_button.pack(side="left", padx=5)
 
         close_button = ttk.Button(
             master=self._frame,
             text="Close window",
             command=self._root.destroy
         )
-        close_button.grid(row=3, column=0, pady=8)
+        close_button.pack(pady=12)

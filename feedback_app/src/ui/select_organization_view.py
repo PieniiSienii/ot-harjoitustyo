@@ -12,7 +12,7 @@ class SelectOrganizationView:
         self._initialize()
 
     def pack(self):
-        self._frame.pack(fill=constants.X, expand=True)
+        self._frame.pack(fill=constants.BOTH, expand=True)
 
     def destroy(self):
         self._frame.destroy()
@@ -20,20 +20,44 @@ class SelectOrganizationView:
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
 
-        label = ttk.Label(master=self._frame,
-                          text="Select organization")
-        label.grid(row=0, column=0)
+        ttk.Frame(self._frame, height=80).pack()
+
+        style = ttk.Style()
+
+        style.configure(
+            "Org.TButton",
+            font=("Arial", 11),
+            padding=8
+        )
+
+        style.configure(
+            "Back.TButton",
+            font=("Arial", 10),
+            padding=5
+        )
+
+        label = ttk.Label(
+            master=self._frame,
+            text="Select organization",
+            font=("Arial", 14, "bold")
+        )
+
+        label.pack(pady=10)
 
         organization = self._org_repo.get_all()
-        for i, org in enumerate(organization):
+
+        for org in organization:
             ttk.Button(
                 master=self._frame,
                 text=org.name,
+                style="Org.TButton",
+                width=25,
                 command=lambda o=org: self._handle_org(o.org_id)
-            ).grid(row=i+1, column=0)
+            ).pack(pady=3)
 
         ttk.Button(
             master=self._frame,
             text="Back",
+            style="Back.TButton",
             command=self._go_back
-        ).grid(row=len(organization) + 2, column=0, pady=8)
+        ).pack(pady=20)

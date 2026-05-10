@@ -13,41 +13,50 @@ class MoodView:
         self._initialize()
 
     def pack(self):
-        self._frame.pack(fill=constants.X, expand=True)
+        self._frame.pack(fill=constants.BOTH, expand=True)
 
     def destroy(self):
         self._frame.destroy()
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
-        label = ttk.Label(master=self._frame,
-                          text="How is your overall mood today? (Excellent/ Ok/ Bad)")
+
+        ttk.Frame(self._frame, height=80).pack()
+
+        label = ttk.Label(
+            master=self._frame,
+            text="How is your overall mood today?",
+            font=("Arial", 14, "bold"))
+
+        label.pack(pady=10)
+
+        button_frame = ttk.Frame(self._frame)
+        button_frame.pack(pady=10)
 
         excellent_button = ttk.Button(
-            master=self._frame,
+            master=button_frame,
             text="Excellent",
             command=lambda: self._handle_mood("Excellent")
         )
 
         ok_button = ttk.Button(
-            master=self._frame,
+            master=button_frame,
             text="Ok",
             command=lambda: self._handle_mood("Ok")
         )
 
         bad_button = ttk.Button(
-            master=self._frame,
+            master=button_frame,
             text="Bad",
             command=lambda: self._handle_mood("Bad")
         )
+
+        excellent_button.pack(side="left", padx=5)
+        ok_button.pack(side="left", padx=5)
+        bad_button.pack(side="left", padx=5)
 
         ttk.Button(
             master=self._frame,
             text="Back",
             command=self._go_back
-        ).grid(row=4, column=0, pady=8)
-
-        label.grid(row=0, column=0, columnspan=2)
-        excellent_button.grid(row=1, column=0)
-        ok_button.grid(row=1, column=1)
-        bad_button.grid(row=1, column=2)
+        ).pack(pady=15)

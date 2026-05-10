@@ -5,5 +5,4 @@ htmlcov/
 .venv/
 venv/
 test_fb.json
-.sqlite
-
+data/database.sqlite

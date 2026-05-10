@@ -45,7 +45,6 @@ ja
 
 ![](kuvat/ratings_by_mood.png)
 
-
 ## Asiakas rooli
 Valittuasi käyttäjäksi asiakkaan, aukeaa tietyn organisaation valintaikkuna. Painiketta painamalla voi valita, mille organisaatiolle haluaa antaa palautetta:
 
@@ -54,7 +53,7 @@ Valittuasi käyttäjäksi asiakkaan, aukeaa tietyn organisaation valintaikkuna. 
 ### Fiilikseen vastaaminen
 Valittuasi organisaation, sovellus kysyy sinulta ensin, millainen fiilis sinulla ylipäätään on tänään. Klikkaamalla sinulle parasta vaihtoehtoa pääsee eteenpäin:
 
-![](kuvat/mood_näkymä.png)
+![](kuvat/mood_nakyma.png)
 
 ### Kysymyksiin vastaaminen
 Valittuasi fiiliksen, sovellus kysyy sinulta kolme (3) kysymystä liittyen asiointiin yrityksessä. Vastaa kysymyksiin asteikolla 1-5:

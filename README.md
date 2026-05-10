@@ -31,3 +31,26 @@ Sovelluksen avulla asiakkaat voivat antaa anonyymisti yritykselle palautetta, jo
    ```
 
 ## Komentorivitoiminnot
+
+### Ohjelman suorittaminen
+Ohjelman pystyy suorittamaan komennolla: 
+``` bash
+poetry run invoke start
+```
+### Testit
+Testit suoritetaan komennolla:
+``` bash
+poetry run invoke test
+```
+### Testikattavuusraportti
+Testikattavuusraportin saa komennolla: 
+``` bash
+poetry run invoke coverage-report
+```
+Sivun voi avata linkistä selaimeen
+
+### Pylint
+.pylintcr määrittelemät tarkistukset voi suorittaa komennolla:
+``` bash
+poetry run invoke lint
+```

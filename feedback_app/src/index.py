@@ -9,7 +9,8 @@ from ui.ui import UI
 
 def main():
     window = Tk()
-    window.geometry("600x400")
+    window.minsize(700, 800)
+    window.geometry("700x800")
     window.title("Feedback App")
     connection = get_db_connection()
     q_repo = QuestionsRepository(connection)
@@ -19,6 +20,7 @@ def main():
     ui = UI(window, service, org_repo)
     ui.start()
     window.mainloop()
+
 
 if __name__ == "__main__":
     main()

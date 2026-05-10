@@ -27,7 +27,7 @@ def create_tables(connection):
                    id INTEGER PRIMARY KEY AUTOINCREMENT,
                    name TEXT UNIQUE)
                 """)
-    
+
     cursor.execute("""
                 CREATE TABLE questions ( 
                    id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -39,9 +39,10 @@ def create_tables(connection):
 
     connection.commit()
 
+
 def seed_questions(connection):
     cursor = connection.cursor()
-    
+
     questions = {
         "Cleanliness": "1. How clean and well-organized was the store?",
         "Customer Service": "2. How satisfied were you with the customer service?",
@@ -55,6 +56,7 @@ def seed_questions(connection):
         )
 
     connection.commit()
+
 
 def seed_organizations(connection):
     cursor = connection.cursor()

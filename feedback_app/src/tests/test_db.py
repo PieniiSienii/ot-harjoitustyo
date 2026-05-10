@@ -25,4 +25,12 @@ def create_test_tables(connection):
                    name TEXT)
                 """)
 
+    cursor.execute("""
+                CREATE TABLE questions (
+                   id INTEGER PRIMARY KEY,
+                   org_id INTEGER,
+                   key TEXT,
+                   text TEXT)
+                """)
+
     connection.commit()

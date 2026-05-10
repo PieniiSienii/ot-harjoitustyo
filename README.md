@@ -9,7 +9,7 @@ Sovelluksen avulla asiakkaat voivat antaa anonyymisti yritykselle palautetta, jo
 - [Vaatumusmäärittely](feedback_app/dokumentaatio/vaatimusmaarittely.md/)
 - [Arkkitehtuurikuvaus](feedback_app/dokumentaatio/arkkitehtuuri.md/)
 - [Changelog](feedback_app/dokumentaatio/changelog.md/)
-- [Release](https://github.com/PieniiSienii/ot-harjoitustyo/releases/tag/viikko6)
+- [Release](https://github.com/PieniiSienii/ot-harjoitustyo/releases/tag/Loppupalautus)
 
 ## Asennus
 1. Asenna riippuvuudet komennolla:

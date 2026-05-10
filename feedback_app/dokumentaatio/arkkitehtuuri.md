@@ -26,6 +26,7 @@ flowchart TD
     Conn["db_connection.py"] --> DB
 
 ```
+UI hoitaa käyttöliittymän, repositories pysyväistallennuksen ja services sovelluslogiikan. Entities pakkauksesta löytyy luokat, jotka hoitaa sovelluksen käyttämät tietokohteet.
 
 ## Käyttöliittymä
 Käyttöliittymää ohjaa UI-luokka, joka ensin näyttää käyttäjävalinnan, ja ohjaa käyttäjän sen jälkeen joko:
@@ -50,6 +51,8 @@ Sovelluslogiikasta vastaa `FeedbackService` joka tarjoaa eri metodeita:
 - `get_all()`
 - `get_average_ratings(org_id)`
 - `get_average_ratings_by_mood(org_id)`
+- `get_rating_status(org_id)`
+- `get_mood_differences(org_id)`
 
 FeedbackService tallentaa palautteen `Feedback`-oliona ja antaa tallennuksen vastuun `FeedbackRepository`-luokalle.
 Service laskee myös organisaation palautteiden kysymyskohtaiset keskiarvot ja voi luokitella ne moodin mukaan.
@@ -74,7 +77,7 @@ Service laskee myös organisaation palautteiden kysymyskohtaiset keskiarvot ja v
 
 ## Tietojen pysyväistallennus
 
-Tietojen tallennuksesta huolehtii `repositories` luokat `FeedbackRepository` ja `OrganizationRepository`. Tiedot tallennetaan SQLIte- tietokantaan.
+Tietojen tallennuksesta huolehtii `repositories` luokat `FeedbackRepository`, `OrganizationRepository` ja `QuestionsRepository`. Tiedot tallennetaan SQLIte- tietokantaan.
 
 ## Päätoiminnallisuudet
 

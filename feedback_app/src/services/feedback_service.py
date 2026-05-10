@@ -44,8 +44,6 @@ class FeedbackService:
                 key = answer_keys[i]
                 total[key] += value
 
-
-
         return {key: total[key] / len(feedbacks) for key in total}
 
     def get_average_ratings_by_mood(self, org_id):
@@ -55,7 +53,9 @@ class FeedbackService:
             org_id: Kyseisen organisaation id
 
         Returns:
-            Palauttaa sanakirjan, jossa avaimena mood ja avaimena toinen sanakirja (avaimena kysymyksen aihe ja arvona ka) 
+            Palauttaa sanakirjan,
+            jossa avaimena mood ja avaimena toinen sanakirja
+            (avaimena kysymyksen aihe ja arvona ka) 
         """
         feedbacks = [fb for fb in self._repo.get_all() if fb.org_id == org_id]
 
@@ -103,13 +103,46 @@ class FeedbackService:
     def calc_overall_rating(self, org_id):
         total = 0
         feedbacks = [fb for fb in self._repo.get_all() if fb.org_id == org_id]
-        
+
         if not feedbacks:
             return {}
 
         count = len(self.get_questions()) * len(feedbacks)
-        
+
         for fb in feedbacks:
             total += sum(fb.answers)
 
         return total / count
+
+    def get_rating_status(self, org_id):
+        rating = self.calc_overall_rating(org_id)
+        if rating == {}:
+            return None
+
+        if rating >= 4.5:
+            return "Excellent"
+
+        if rating >= 3.5:
+            return "Good"
+
+        if rating >= 2.5:
+            return "Ok"
+
+        return "Poor"
+
+    def get_mood_differences(self, org_id):
+        averages_by_mood = self.get_average_ratings_by_mood(org_id)
+        result = {}
+
+        if "Excellent" not in averages_by_mood or "Bad" not in averages_by_mood:
+            return result
+
+        for key in averages_by_mood["Excellent"]:
+            difference = (
+                averages_by_mood["Excellent"][key]
+                - averages_by_mood["Bad"][key]
+            )
+
+            result[key] = round(difference, 2)
+
+        return result

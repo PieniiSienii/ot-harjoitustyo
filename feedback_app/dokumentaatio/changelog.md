@@ -14,3 +14,8 @@
 - Korjattu viikon 5 toiminnallisuus
 - Organisaation näkymässä näkyy palautteiden keskiarvo
 - Organisaation näkymässä palautteiden keskiarvoa voi tarkastella "mood" ryhmittelyllä
+
+## Viikko 7
+- Organisaatio näkee status labelin
+- Organisaatio näkee mood vaikutuksen vastauksiin
+  

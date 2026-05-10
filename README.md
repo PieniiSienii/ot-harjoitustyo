@@ -4,11 +4,11 @@ Sovelluksen avulla asiakkaat voivat antaa anonyymisti yritykselle palautetta, jo
 
 ## Dokumentaatio
 
-- [Käyttöohje](feedback_app/dokumentaatio/kayttoohje.md/)
-- [Tuntikirjanpito](feedback_app/dokumentaatio/tuntikirjanpito.md/)
-- [Vaatumusmäärittely](feedback_app/dokumentaatio/vaatimusmaarittely.md/)
-- [Arkkitehtuurikuvaus](feedback_app/dokumentaatio/arkkitehtuuri.md/)
-- [Changelog](feedback_app/dokumentaatio/changelog.md/)
+- [Käyttöohje](feedback_app/dokumentaatio/kayttoohje.md)
+- [Tuntikirjanpito](feedback_app/dokumentaatio/tuntikirjanpito.md)
+- [Vaatumusmäärittely](feedback_app/dokumentaatio/vaatimusmaarittely.md)
+- [Arkkitehtuurikuvaus](feedback_app/dokumentaatio/arkkitehtuuri.md)
+- [Changelog](feedback_app/dokumentaatio/changelog.md)
 - [Testaus](feedback_app/dokumentaatio/testaus.md)
 - [Tekoälyn käyttö](feedback_app/dokumentaatio/tekoaly.md)
 - [Release (Loppupalautus)](https://github.com/PieniiSienii/ot-harjoitustyo/releases/tag/loppupalautus)

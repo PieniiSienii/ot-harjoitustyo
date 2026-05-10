@@ -56,3 +56,7 @@ Sivun voi avata linkistä selaimeen
 ``` bash
 poetry run invoke lint
 ```
+### Formatointi
+``` bash
+poetry run invoke format
+```

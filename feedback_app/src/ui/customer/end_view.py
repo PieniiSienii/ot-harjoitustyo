@@ -2,21 +2,29 @@ from tkinter import ttk, constants
 
 
 class EndView:
-    """Luokka, joka vastaa loppunäkymästä, kun arvostelu on annettu. """
+    """Class responsible for the final view shown after feedback is submitted."""
 
     def __init__(self, root):
+        """Constructor for the end view."""
+
         self._root = root
         self._frame = None
 
         self._initialize()
 
     def pack(self):
+        """Displays the view."""
+
         self._frame.pack(fill=constants.BOTH, expand=True)
 
     def destroy(self):
+        """Destroys the view."""
+
         self._frame.destroy()
 
     def _initialize(self):
+        """Initializes the UI components."""
+
         self._frame = ttk.Frame(master=self._root)
 
         ttk.Frame(self._frame, height=250).pack()

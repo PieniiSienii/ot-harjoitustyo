@@ -2,35 +2,43 @@ from entities.feedback import Feedback
 
 
 class FeedbackService:
-    """Luokka, joka huolehtii palautteiden logiikasta."""
+    """Class responsible for feedback-related logic."""
 
     def __init__(self, repository, question_repository):
+        """Constructor for the feedback service.
+
+        Args:
+            repository: Repository used for feedback storage 
+            question_repository: Repository used for fetching questions
+        """
         self._repo = repository
         self._question_repo = question_repository
 
     def save_feedback(self, org_id, mood, answers):
-        """Tallentaa palautteen.
+        """Saves a new feedback entry.
 
         Args:
-            org_id: Palautteen kohteena olevan yrityksen id
-            mood: Asiakkaan yleinen päivän fiilis
-            answers: Lista kolmen kysymyksen vastauksista asteikolla 1-5 
+            org_id: ID of the target organization.
+            mood: Customer's overall mood
+            answers: List of answers on a 1-5 scale
         """
 
         fb = Feedback(org_id, mood, answers)
         self._repo.add_fb(fb)
 
     def get_all(self):
+        """Returns all saved feedback"""
         return self._repo.get_all()
 
     def get_average_ratings(self, org_id):
-        """ Muodostaa keskiarvon jokaisen kysymyksen vastauksesta erikseen.
+        """Calculates average ratings for each question
 
         Args:
-            org_id: Kyseessä olevan organisaation id
+            org_id: ID of the organization
 
         Returns:
-            Sanakirjan, jossa avaimena on kysymyksen aihe ja arvona sen vastauksien keskiarvo.
+            Dictionary where keys are question categories
+            and values are average ratings.
         """
         feedbacks = [fb for fb in self._repo.get_all() if fb.org_id == org_id]
         if not feedbacks:
@@ -47,15 +55,14 @@ class FeedbackService:
         return {key: total[key] / len(feedbacks) for key in total}
 
     def get_average_ratings_by_mood(self, org_id):
-        """Muodostaa keskiarvot kysymyskategorioista ja järjestää ne moodin mukaan
+        """Calculates average ratings grouped by mood
 
         Args:
-            org_id: Kyseisen organisaation id
+            org_id: ID of the organization.
 
         Returns:
-            Palauttaa sanakirjan,
-            jossa avaimena mood ja avaimena toinen sanakirja
-            (avaimena kysymyksen aihe ja arvona ka) 
+            Dictionary where moods map to dictionaries
+            containing question averages.
         """
         feedbacks = [fb for fb in self._repo.get_all() if fb.org_id == org_id]
 
@@ -66,6 +73,7 @@ class FeedbackService:
         return self._calc_averages(mood_grouped_ratings)
 
     def _group_by_mood(self, feedbacks):
+        """Groups feedback answers by mood."""
         mood_grouped_ratings = {}
 
         for fb in feedbacks:
@@ -77,6 +85,7 @@ class FeedbackService:
         return mood_grouped_ratings
 
     def _calc_averages(self, mood_grouped_ratings):
+        """Calculates averages from grouped by mood."""
         answer_keys = [q["key"] for q in self.get_questions()]
 
         result = {}
@@ -97,10 +106,11 @@ class FeedbackService:
         return result
 
     def get_questions(self):
-        """Hakee kysymykset kysymysten repositoriosta."""
+        """Fetches all feedback questions."""
         return self._question_repo.get_all()
 
     def calc_overall_rating(self, org_id):
+        """Calculates the overall average rating."""
         total = 0
         feedbacks = [fb for fb in self._repo.get_all() if fb.org_id == org_id]
 
@@ -115,6 +125,7 @@ class FeedbackService:
         return total / count
 
     def get_rating_status(self, org_id):
+        """Retruns a status label based on overall rating."""
         rating = self.calc_overall_rating(org_id)
         if rating == {}:
             return None
@@ -131,6 +142,7 @@ class FeedbackService:
         return "Poor"
 
     def get_mood_differences(self, org_id):
+        """Calculates rating differences between Excellent and Bad moods."""
         averages_by_mood = self.get_average_ratings_by_mood(org_id)
         result = {}
 

@@ -2,6 +2,8 @@ from tkinter import ttk, constants
 
 
 class SelectOrganizationView:
+    """Class responsible for selecting an organization."""
+
     def __init__(self, root, handle_org, org_repo, go_back):
         self._root = root
         self._handle_org = handle_org

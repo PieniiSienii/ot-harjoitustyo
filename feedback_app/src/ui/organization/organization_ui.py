@@ -3,9 +3,11 @@ from ui.organization.org_ratings_view import OrgRatingsView
 
 
 class OrganizationUI:
-    """ Vastaa organisaation näkymästä."""
+    """Class responsible for the organization view."""
 
     def __init__(self, root, service, flow, org_repo, go_back):
+        """Constructor for the organization UI."""
+
         self._root = root
         self._service = service
         self._current_view = None
@@ -15,10 +17,12 @@ class OrganizationUI:
         self._flow = flow
 
     def start(self):
+        """Starts the organization view flow."""
+
         self._show_org_view()
 
     def _show_org_view(self):
-        """ Näyttää organisaation valintanäkymän. """
+        """Displays the organization selection view."""
 
         self._flow.show(lambda:
                         SelectOrganizationView(
@@ -30,10 +34,10 @@ class OrganizationUI:
                         )
 
     def _handle_org(self, org_id):
-        """ Näyttää valitun organisaation arvostelunäkymän.
+        """Displays ratings for the selected organization.
 
         Args:
-            org_id: valitun organisaation id.
+            org_id: Selected organization id.
         """
 
         averages_by_mood = self._service.get_average_ratings_by_mood(org_id)

@@ -3,10 +3,11 @@ from entities.feedback import Feedback
 
 
 class QuestionsView:
-    """ Luokka, joka näyttää kysymksiin vastaamisnäkymän. """
+    """Class responsible for displaying the feedback questions view."""
 
     def __init__(self, root, handle_questions, go_back, service):
-        self._root = root
+        """Constructor for the questions view."""
+
         self._handle_questions = handle_questions
         self._go_back = go_back
         self._service = service
@@ -60,6 +61,12 @@ class QuestionsView:
         ).pack(pady=20)
 
     def _handle_rating(self, rating):
+        """Handles saving a rating and moving to the next question.
+
+        Args:
+            rating: Integer rating (1-5)
+        """
+
         self._answers.append(rating)
         self._curr_question += 1
 

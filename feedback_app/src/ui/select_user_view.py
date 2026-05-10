@@ -2,6 +2,8 @@ from tkinter import ttk, constants
 
 
 class SelectUserView:
+    """Class responsible for selecting the user."""
+
     def __init__(self, root, handle_customer, handle_admin):
         self._root = root
         self._handle_customer = handle_customer

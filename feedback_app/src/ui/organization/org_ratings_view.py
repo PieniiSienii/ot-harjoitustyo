@@ -2,9 +2,22 @@ from tkinter import ttk, constants
 
 
 class OrgRatingsView:
-    """Luokka, joka vastaa organisaation arvostelunäkymästä"""
+    """Class responsible for displaying organization feedback statistics."""
 
     def __init__(self, root, feedbacks, averages, averages_by_mood, overall_rating, get_status, get_mood_difference, go_back):
+        """Constructor for the organization ratings view.
+
+        Args:
+            root: Tkinter root window.
+            feedbacks: List of feedback objects for the organization.
+            averages: Average ratings per question.
+            averages_by_mood: Average ratings grouped by mood.
+            overall_rating: Overall average rating.
+            get_status: Function returning rating status label. 
+            get_mood_difference: Mood-based rating differences.
+            go_back: Function for returning to previous view.
+        """
+
         self._root = root
         self._feedbacks = feedbacks
         self._averages = averages
@@ -84,6 +97,8 @@ class OrgRatingsView:
         close_button.pack(side="left", padx=10)
 
     def show_ratings(self):
+        """Displays average ratings per question."""
+
         row = 0
 
         if self._averages:
@@ -120,8 +135,7 @@ class OrgRatingsView:
             self._toggle_row = row
 
     def _toggle_mood_ratings(self):
-        """Huolehtii, näytetäänkö arvostelut jotka on ryhmitelty fiiliksen perusteella, vai ei.
-            Jos arvostelut ei ole esillä ja nappia painetaan, ne tulevat esiin ja toistepäin. """
+        """Toggles visibility of mood-based ratings."""
 
         if self._mood_frame.winfo_ismapped():
             self._mood_frame.grid_remove()
@@ -132,8 +146,7 @@ class OrgRatingsView:
             self._toggle_button.config(text="Hide ratings by mood ▲")
 
     def _show_ratings_by_mood(self):
-        """Näyttää arvostelut jaoteltuna moodin pohjalta
-        """
+        """Displays ratings grouped by mood."""
 
         for widget in self._mood_frame.winfo_children():
             widget.destroy()
@@ -173,6 +186,8 @@ class OrgRatingsView:
             ).grid(row=1, column=0, pady=5)
 
     def show_overall_rating(self):
+        """Displays overall rating."""
+
         if self._overall_rating:
             ttk.Label(
                 master=self._frame,
@@ -183,6 +198,8 @@ class OrgRatingsView:
             pass
 
     def show_status(self):
+        """Displays rating status label."""
+
         if self._get_status:
             ttk.Label(
                 master=self._frame,
@@ -191,6 +208,8 @@ class OrgRatingsView:
             ).grid(row=2, column=0, pady=(0, 5))
 
     def get_difference(self):
+        """Displays difference between moods (Excellent vs Bad)"""
+
         if self._mood_difference:
             ttk.Label(
                 master=self.right,

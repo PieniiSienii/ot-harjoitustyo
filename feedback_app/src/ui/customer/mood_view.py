@@ -2,9 +2,17 @@ from tkinter import ttk, constants
 
 
 class MoodView:
-    """ Luokka, joka vastaa päivän fiilis kysymyksen näyttämisestä"""
+    """Class responsible for displaying the mood selection view."""
 
     def __init__(self, root, handle_mood, go_back):
+        """Constructor for the mood view.
+
+        Args:
+            root: Tkinter root window.
+            handle_mood: Callback function for handling selected mood.
+            go_back: Function for returning to the previous view.
+        """
+
         self._root = root
         self._handle_mood = handle_mood
         self._frame = None
@@ -13,12 +21,18 @@ class MoodView:
         self._initialize()
 
     def pack(self):
+        """Displays the view."""
+
         self._frame.pack(fill=constants.BOTH, expand=True)
 
     def destroy(self):
+        """Destroys the view."""
+
         self._frame.destroy()
 
     def _initialize(self):
+        """Initializes the UI components."""
+
         self._frame = ttk.Frame(master=self._root)
 
         ttk.Frame(self._frame, height=80).pack()

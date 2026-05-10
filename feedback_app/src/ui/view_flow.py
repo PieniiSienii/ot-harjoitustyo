@@ -1,19 +1,29 @@
 class ViewFlow:
-    """Luokka, joka hallitsee näkymiä ja niissä navigointia.
-        Säilyttää historiassa factory-funktiot näkymistä, jotta back-navigaatiossa ne voidaan luoda uudelleen."""
+    """Class responsible for managing views and navigation between them.
+
+    Stores previously shown view factories in history so they
+    can be recreated when navigating backwards.
+    """
 
     def __init__(self, root,):
+        """Constructor for the view manager.
+
+        Args:
+            root: Tkinter root window.
+        """
+
         self._root = root
         self._history = []
         self._current_view = None
         self._current_factory = None
 
     def show(self, view):
-        """Näyttää uuden näkymän ja tallentaa edellsen historiaan.
+        """Displays a new view and stores the previous one in history.
 
         Args:
-            view: Kutsuttava näkymä, joka luodaan ja tallennetaan historiaan.
+            view: Callable that creates and returns a view object.
         """
+
         if self._current_view is not None:
             self._current_view.destroy()
             self._history.append(self._current_factory)
@@ -24,7 +34,7 @@ class ViewFlow:
         self._root.update()
 
     def clear(self):
-        """Poistaa nykyisen näkymän ja tyhjentää historian. """
+        """Removes the current view and clears the navigation history."""
 
         if self._current_view is not None:
             self._current_view.destroy()
@@ -32,7 +42,7 @@ class ViewFlow:
         self._history = []
 
     def go_back(self):
-        """ Palaa edelliseen näkymään. """
+        """Returns to the previous view."""
 
         if self._current_view is not None:
             self._current_view.destroy()

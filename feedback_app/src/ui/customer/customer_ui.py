@@ -5,9 +5,19 @@ from ui.customer.end_view import EndView
 
 
 class CustomerUI:
-    """Vastaa asiakkaan näkymästä. """
+    """Class responsible for the customer feedback flow."""
 
     def __init__(self, root, service, flow, org_repo, go_back):
+        """Constructor for the customer UI flow.
+
+        Args:
+            root: Tkinter root window.
+            service: Feedback service object. 
+            flow: ViewFlow object for naviagtion.
+            org_repo: Repository containing organizations.
+            go_back: Function for returning to the previous menu.
+        """
+
         self._root = root
         self._service = service
         self._current_view = None
@@ -19,10 +29,11 @@ class CustomerUI:
         self._flow = flow
 
     def start(self):
+        """Starts the customer feedback flow."""
         self._show_org_view()
 
     def _show_org_view(self):
-        """Näyttää organisaation valintanäkymän. """
+        """Displays the organization selection view."""
 
         self._flow.show(lambda:
                         SelectOrganizationView(
@@ -34,17 +45,17 @@ class CustomerUI:
                         )
 
     def _handle_org(self, org_id):
-        """Tallentaa valitun organisaation id:n ja siirtyy "moodin" kysymykseen"
+        """Stores the selected organization id and moves to mood selection.
 
         Args:
-            org_id: Valitun organisaation id. 
+            org_id: Selected organization id. 
         """
 
         self._org_id = org_id
         self._show_mood_view()
 
     def _show_mood_view(self):
-        """Näyttää näkymän, missä kysytään päivän fiilistä. """
+        """Displays the mood selection view."""
 
         self._flow.show(lambda: MoodView(
             self._root,
@@ -54,10 +65,17 @@ class CustomerUI:
         )
 
     def _handle_mood(self, mood):
+        """Stores the selected mood and moves to the questions view.
+
+        Args:
+            mood: Customer mood selection.
+        """
+
         self._mood = mood
         self._show_questions()
 
     def _show_questions(self):
+        """Displays the feedback questions view."""
         self._flow.show(lambda:
                         QuestionsView(
                             self._root,
@@ -68,14 +86,15 @@ class CustomerUI:
                         )
 
     def _handle_questions(self, answers):
-        """Tallentaa organisaation id:n, fiiliksen, ja arvostelun vastaukset. 
+        """Saves the feedback answers.
 
         Args:
-            answers: Lista kolmen kysymyksen vastauksista (asteikko 1-5)
+            answers: List of question ratings on a scale of 1-5.
         """
 
         self._service.save_feedback(self._org_id, self._mood, answers)
         self._show_end_view()
 
     def _show_end_view(self):
+        """Displays the final thank you view."""
         self._flow.show(lambda: EndView(self._root))
